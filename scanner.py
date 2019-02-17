@@ -35,22 +35,22 @@ def makethread(count):
 
     if count==2:
         temp=count+65
-        #print(temp)
+        count=0
+
     else:
         temp=count+63
-        #print (temp)
+
 
     while temp>count:
         ip=""
         sockets=socket.socket(socket.AF_INET, socket.SOCK_STREAM)
         socket.setdefaulttimeout(1)
         ip=str(ipadd[count])
-        #try:
+
         if sockets.connect_ex((ip,port))==0:
             print("Ip--{} -- is alive on port {}".format(ip,port))
         sockets.close()
-        #except:
-        #    pass
+
         count+=1
 
 
@@ -67,7 +67,7 @@ def main():
     th3=rg-total
     th4=th3-total
 
-    #print(th1)
+
     print("[+] Threads initiated")
     p1 = threading.Thread(target=makethread,args=(th1,))
     p2 = threading.Thread(target=makethread,args=(th2,))
